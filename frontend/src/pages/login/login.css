@@ -1,0 +1,101 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-color: #7b7b7b;
+  background: url("https://thumbs.dreamstime.com/b/asian-food-background-various-ingredients-rustic-stone-top-view-vietnam-thai-cuisine-148762904.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* opacity: 90%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginWrapper {
+  width: 70%;
+  height: 70%;
+  display: flex;
+}
+
+.loginLeft,
+.loginRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginLogo {
+  font-size: 70px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.loginDesc {
+  font-size: 34px;
+  color: white;
+}
+
+.loginBox {
+  height: 300px;
+  padding: 20px;
+  /* background-color: white; */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: url("data:image/jpeg;base64,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");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.loginInput {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.loginInput:focus {
+  outline: none;
+}
+
+.loginButton {
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1775ee;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.loginButton:focus {
+  outline: none;
+}
+
+.loginButton:disabled {
+  cursor: not-allowed;
+}
+
+.loginForgot {
+  text-align: center;
+  /* color: #1775ee; */
+}
+
+.loginRegisterButton {
+  width: 60%;
+  align-self: center;
+  border-radius: 10px;
+  border: none;
+  background-color: #42b72a;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 25px;
+}
