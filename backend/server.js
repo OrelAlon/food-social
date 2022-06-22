@@ -69,4 +69,5 @@ app.listen(port, () => {
   console.log("connecteddddd");
 });
 
-// //  ==> npm run dev
+// //  ==> npm run server  (form the backend folder)
+// for concurrently ==> npm run dev ==> from main folder
