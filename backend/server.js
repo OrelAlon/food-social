@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv");
 const helmet = require("helmet");
 const multer = require("multer");
 const path = require("path");
@@ -10,11 +10,13 @@ const port = process.env.PORT || 8000;
 // const router = express.Router();
 // const morgan = require("morgan");
 
-// routes;
+// routes
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const authRoute = require("./routes/auth");
 const restaurantRoute = require("./routes/restaurants");
+
+dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connectes to MongoDB!!!!");
@@ -69,5 +71,4 @@ app.listen(port, () => {
   console.log("connecteddddd");
 });
 
-// //  ==> npm run server  (form the backend folder)
-// for concurrently ==> npm run dev ==> from main folder
+// from rout ==> npm run dev

@@ -16,6 +16,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
+    console.log(file);
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordAgainRef.current.value) {
