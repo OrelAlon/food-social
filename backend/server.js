@@ -7,10 +7,10 @@ const multer = require("multer");
 const path = require("path");
 const port = process.env.PORT || 8000;
 
-const router = express.Router();
-const morgan = require("morgan");
+// const router = express.Router();
+// const morgan = require("morgan");
 
-routes;
+// routes;
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const authRoute = require("./routes/auth");
