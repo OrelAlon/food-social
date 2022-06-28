@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 import axios from "axios";
 
@@ -8,8 +9,6 @@ import Navbar from "../../components/navbar/Navbar";
 import { PermMedia } from "@material-ui/icons";
 
 import "./addRestaurant.css";
-
-import React from "react";
 
 const AddRestaurant = () => {
   const [file, setFile] = useState(null);
@@ -56,8 +55,6 @@ const AddRestaurant = () => {
     <>
       <Navbar />
       <div className='addRestaurant'>
-        <h1>AddRestaurant</h1>
-
         <form action='submit' className='formBox' onSubmit={handleSubmit}>
           <label htmlFor='file' className='loginImg'>
             Add Restaurant Name
