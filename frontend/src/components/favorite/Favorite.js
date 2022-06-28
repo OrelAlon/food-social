@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import "./favorite.css";
 
+import React from "react";
+
 function Favorite({ restaurant }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 

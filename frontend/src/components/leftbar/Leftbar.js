@@ -14,6 +14,8 @@ import {
 
 import "./leftbar.css";
 
+import React from "react";
+
 const Leftbar = () => {
   return (
     <div className='leftbar'>

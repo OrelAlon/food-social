@@ -7,6 +7,8 @@ import { PermMedia, Label } from "@material-ui/icons";
 
 import "./share.css";
 
+import React from "react";
+
 const Share = () => {
   const { user } = useContext(AuthContext);
   const [file, setFile] = useState(null);

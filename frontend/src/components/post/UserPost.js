@@ -8,6 +8,8 @@ import { DeleteForever } from "@material-ui/icons";
 
 import "./post.css";
 
+import React from "react";
+
 const UserPost = ({ post }) => {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);

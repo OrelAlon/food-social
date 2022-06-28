@@ -6,6 +6,8 @@ import { format } from "timeago.js";
 
 import "./post.css";
 
+import React from "react";
+
 const RestaurantPost = ({ post }) => {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);

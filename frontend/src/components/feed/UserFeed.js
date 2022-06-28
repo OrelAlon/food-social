@@ -7,6 +7,8 @@ import Share from "../share/Share";
 import UserPost from "../post/UserPost";
 import "./feed.css";
 
+import React from "react";
+
 const UserFeed = ({ username }) => {
   const [posts, setPosts] = useState([]);
   const { user } = useContext(AuthContext);

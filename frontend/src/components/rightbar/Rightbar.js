@@ -8,6 +8,8 @@ import axios from "axios";
 
 import "./rightbar.css";
 
+import React from "react";
+
 const Rightbar = ({ user }) => {
   const [restaurantsList, setRestaurantsList] = useState([]);
   const [file, setFile] = useState(null);

@@ -5,6 +5,8 @@ import PublicFeed from "../../components/feed/PublicFeed";
 
 import "./home.css";
 
+import React from "react";
+
 function Home() {
   return (
     <>

@@ -10,6 +10,8 @@ import Rightbar from "../../components/rightbar/Rightbar";
 
 import "./restaurant.css";
 
+import React from "react";
+
 const Restaurant = () => {
   const [restaurant, setRestaurant] = useState({});
   const restaurantname = useParams().restaurantname;

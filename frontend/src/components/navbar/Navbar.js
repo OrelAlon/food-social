@@ -7,6 +7,8 @@ import noAvatar from "../../assets/noAvatar.png";
 
 import "./navbar.css";
 
+import React from "react";
+
 function Navbar() {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();

@@ -9,6 +9,8 @@ import { PermMedia } from "@material-ui/icons";
 
 import "./addRestaurant.css";
 
+import React from "react";
+
 const AddRestaurant = () => {
   const [file, setFile] = useState(null);
 

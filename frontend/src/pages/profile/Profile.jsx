@@ -10,6 +10,8 @@ import Rightbar from "../../components/rightbar/Rightbar";
 
 import "./profile.css";
 
+import React from "react";
+
 const Profile = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 

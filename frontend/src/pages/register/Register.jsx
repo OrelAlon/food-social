@@ -5,6 +5,8 @@ import { PermMedia } from "@material-ui/icons";
 
 import "./register.css";
 
+import React from "react";
+
 const Register = () => {
   const usernameRef = useRef();
   const emailRef = useRef();

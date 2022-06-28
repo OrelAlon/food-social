@@ -16,6 +16,8 @@ import AddRestaurant from "./pages/addRestaurant/AddRestaurant";
 
 import "./App.css";
 
+import React from "react";
+
 function App() {
   const ProtectedRoute = ({ children }) => {
     const { user } = useContext(AuthContext);

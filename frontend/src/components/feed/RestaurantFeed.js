@@ -6,6 +6,8 @@ import RestaurantPost from "../post/RestaurantPost";
 
 import "./feed.css";
 
+import React from "react";
+
 const RestaurantFeed = ({ restaurant }) => {
   const [posts, setPosts] = useState([]);
 
