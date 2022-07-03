@@ -5,7 +5,6 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const multer = require("multer");
 const path = require("path");
-
 const port = process.env.PORT || 8000;
 
 // const router = express.Router();
@@ -36,7 +35,7 @@ const storage = multer.diskStorage({
     cb(null, "public/images");
   },
   filename: (req, file, cb) => {
-    cb(null, req.body.name);
+    cb(null, file.originalname);
   },
 });
 
@@ -72,4 +71,4 @@ app.listen(port, () => {
   console.log("connecteddddd");
 });
 
-// from rout ==> npm run dev
+// from the routs  ==> npm run dev

@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
+import { ToastContainer, toast } from "react-toastify";
 
 import "./login.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import React from "react";
 
@@ -29,6 +31,10 @@ const Login = () => {
 
   const handleRegister = () => {
     navigate("/register");
+  };
+  const notify = () => {
+    toast("Wow so easy!");
+    console.log("test");
   };
 
   return (
@@ -62,6 +68,8 @@ const Login = () => {
             </button>
             {/* <span className='loginForgot'>Forgot Password?</span> */}
           </form>
+          <button onClick={notify}>toast</button>
+          <ToastContainer />
           <button className='loginRegisterButton' onClick={handleRegister}>
             {isFetching ? (
               <CircularProgress color='white' size='20px' />
