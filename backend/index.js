@@ -24,6 +24,9 @@ mongoose.connect(process.env.MONGO_URL, () => {
 });
 
 app.use("/upload", express.static(path.join(__dirname, "/public/upload")));
+
+// fileupload - upload files
+
 app.use(fileupload());
 
 app.post("/api/upload", (req, res) => {
@@ -45,25 +48,6 @@ app.post("/api/upload", (req, res) => {
 app.use(express.json());
 app.use(helmet());
 // app.use(morgan("common"));
-
-// multer - upload files
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "/public/images");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.req.body.name);
-//   },
-// });
-
-// const upload = multer({ storage });
-// app.post("/api/upload", upload.single("file"), (req, res) => {
-//   try {
-//     return res.status(200).json("file uploaded!!!!!");
-//   } catch (error) {
-//     console.log(":( :( OOps " + error);
-//   }
-// });
 
 //routes
 app.use("/api/users", userRoute);
