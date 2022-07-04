@@ -19,14 +19,18 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    await loginCall(
-      {
-        email: emailRef.current.value,
-        password: passwordRef.current.value,
-      },
-      dispatch
-    );
-    navigate("/");
+    try {
+      await loginCall(
+        {
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        },
+        dispatch
+      );
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleRegister = () => {
@@ -35,6 +39,7 @@ const Login = () => {
   const notify = () => {
     toast("Wow so easy!");
     console.log("test");
+    console.log(dispatch);
   };
 
   return (
