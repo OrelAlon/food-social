@@ -29,10 +29,12 @@ const Share = () => {
     };
     if (file) {
       const data = new FormData();
-      const fileName = Date.now() + file.name;
+      const fileName = file.name;
       data.append("name", fileName);
       data.append("file", file);
       newPost.img = fileName;
+      console.log(fileName);
+      console.log(data);
       try {
         await axios.post("/upload", data);
       } catch (error) {
@@ -42,7 +44,7 @@ const Share = () => {
     console.log(newPost);
     try {
       await axios.post("/posts", newPost);
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }

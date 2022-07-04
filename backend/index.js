@@ -1,4 +1,5 @@
 const express = require("express");
+const fileupload = require("express-fileupload");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -22,7 +23,23 @@ mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connectes to MongoDB!!!!");
 });
 
-app.use("/images", express.static(path.join(__dirname, "/public/images")));
+app.use("/upload", express.static(path.join(__dirname, "/public/upload")));
+app.use(fileupload());
+
+app.post("/api/upload", (req, res) => {
+  if (req.files === null) {
+    return res.status(400).json({ msg: "no file!" });
+  }
+
+  const file = req.files.file;
+  file.mv(`${__dirname}/public/upload/${file.name}`, (err) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  });
+  res.json({ fileName: file.name, filePath: `/public/upload/${file.name}` });
+});
 
 // middleware
 app.use(express.json());
@@ -30,23 +47,23 @@ app.use(helmet());
 // app.use(morgan("common"));
 
 // multer - upload files
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "/public/images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.req.body.name);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "/public/images");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.req.body.name);
+//   },
+// });
 
-const upload = multer({ storage });
-app.post("/api/upload", upload.single("file"), (req, res) => {
-  try {
-    return res.status(200).json("file uploaded!!!!!");
-  } catch (error) {
-    console.log(":( :( OOps " + error);
-  }
-});
+// const upload = multer({ storage });
+// app.post("/api/upload", upload.single("file"), (req, res) => {
+//   try {
+//     return res.status(200).json("file uploaded!!!!!");
+//   } catch (error) {
+//     console.log(":( :( OOps " + error);
+//   }
+// });
 
 //routes
 app.use("/api/users", userRoute);
