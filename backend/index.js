@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connectes to MongoDB!!!!");
 });
 
-app.use("/images", express.static(path.join(__dirname, "public/images")));
+app.use("/images", express.static(path.join(__dirname, "/public/images")));
 
 // middleware
 app.use(express.json());
@@ -32,7 +32,7 @@ app.use(helmet());
 // multer - upload files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/images");
+    cb(null, "/public/images");
   },
   filename: (req, file, cb) => {
     cb(null, file.req.body.name);

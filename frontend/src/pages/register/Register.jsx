@@ -28,18 +28,18 @@ const Register = () => {
         password: passwordRef.current.value,
       };
 
-      // if (file) {
-      //   const data = new FormData();
-      //   const fileName = Date.now() + file.name;
-      //   data.append("name", fileName);
-      //   data.append("file", file);
-      //   user.profilePicture = fileName;
-      //   try {
-      //     await axios.post("/upload", data);
-      //   } catch (error) {
-      //     console.log(error);
-      //   }
-      // }
+      if (file) {
+        const data = new FormData();
+        const fileName = Date.now() + file.name;
+        data.append("name", fileName);
+        data.append("file", file);
+        user.profilePicture = fileName;
+        try {
+          await axios.post("/upload", data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
 
       try {
         await axios.post("/auth/register", user);
@@ -97,7 +97,7 @@ const Register = () => {
               <label htmlFor='file' className='loginImg'>
                 <PermMedia htmlColor='tomato' className='shareIcon' />
                 <span className='shareOptionText'>Add Profile Photo</span>
-                {/* <input
+                <input
                   required
                   style={{ display: "none" }}
                   type='file'
@@ -105,7 +105,7 @@ const Register = () => {
                   id='file'
                   accept='.png,.jpeg,.jpg,.jfif'
                   onChange={(e) => setFile(e.target.files[0])}
-                /> */}
+                />
               </label>
             </div>
             <button className='loginButton' type='submit'>

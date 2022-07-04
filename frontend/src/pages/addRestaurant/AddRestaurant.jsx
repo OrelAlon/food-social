@@ -26,18 +26,18 @@ const AddRestaurant = () => {
       desc: descRef.current.value,
     };
 
-    if (file) {
-      const data = new FormData();
-      const fileName = Date.now() + file.name;
-      data.append("name", fileName);
-      data.append("file", file);
-      restaurant.profilePicture = fileName;
-      try {
-        await axios.post("/upload", data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    // if (file) {
+    //   const data = new FormData();
+    //   const fileName = Date.now() + file.name;
+    //   data.append("name", fileName);
+    //   data.append("file", file);
+    //   restaurant.profilePicture = fileName;
+    //   try {
+    //     await axios.post("/upload", data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
 
     try {
       await axios.post("/restaurants/", restaurant);
@@ -80,7 +80,7 @@ const AddRestaurant = () => {
             <label htmlFor='file' className='loginImg'>
               <PermMedia htmlColor='tomato' className='shareIcon' />
               <span className='shareOptionText'>Add Restaurant Logo</span>
-              <input
+              {/* <input
                 required
                 style={{ display: "none" }}
                 type='file'
@@ -88,7 +88,7 @@ const AddRestaurant = () => {
                 id='file'
                 accept='.png,.jpeg,.jpg,.jfif'
                 onChange={(e) => setFile(e.target.files[0])}
-              />
+              /> */}
             </label>
           </div>
           <button className='loginButton' type='submit'>
