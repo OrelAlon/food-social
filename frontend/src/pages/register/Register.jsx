@@ -30,7 +30,7 @@ const Register = () => {
 
       if (file) {
         const data = new FormData();
-        const fileName = Date.now() + file.name;
+        const fileName = file.name;
         data.append("name", fileName);
         data.append("file", file);
         user.profilePicture = fileName;

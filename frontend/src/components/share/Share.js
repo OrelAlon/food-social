@@ -44,7 +44,7 @@ const Share = () => {
     console.log(newPost);
     try {
       await axios.post("/posts", newPost);
-      // window.location.reload();
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
