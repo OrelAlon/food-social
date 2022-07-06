@@ -16,6 +16,8 @@ const Restaurant = () => {
   const [restaurant, setRestaurant] = useState({});
   const restaurantname = useParams().restaurantname;
 
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   useEffect(() => {
     const fetchRestaurant = async () => {
       const res = await axios.get(
@@ -25,7 +27,7 @@ const Restaurant = () => {
     };
     fetchRestaurant();
   }, [restaurantname]);
-  console.log(restaurant);
+
   return (
     <>
       <Navbar />
@@ -35,9 +37,14 @@ const Restaurant = () => {
           <div className='restaurantInfo'>
             <img
               className='restaurantImg'
-              src={restaurant.profilePicture}
+              src={
+                restaurant
+                  ? PF + restaurant.profilePicture
+                  : PF + "noAvatar.png"
+              }
               alt=''
             />
+
             <h1 className='restaurantInfoName'>{restaurant.restaurantname}</h1>
             <span className='restaurantInfoDesc'>{restaurant.desc}</span>
             <img
