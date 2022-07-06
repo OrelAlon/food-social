@@ -36,8 +36,6 @@ const PublicPost = ({ post }) => {
     fetchRestaurant();
 
     fetchUser();
-    console.log(user);
-    console.log(PF + post.img);
   }, [post.userId]);
 
   const likeHandler = () => {
