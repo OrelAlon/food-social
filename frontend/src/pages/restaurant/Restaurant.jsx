@@ -32,6 +32,7 @@ const Restaurant = () => {
     <>
       <Navbar />
       <div className='restaurant'>
+        <div></div>
         <Leftbar />
         <div className='restaurantRight'>
           <div className='restaurantInfo'>
