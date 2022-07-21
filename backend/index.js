@@ -8,9 +8,6 @@ const helmet = require("helmet");
 const path = require("path");
 const port = process.env.PORT || 8000;
 
-// const router = express.Router();
-// const morgan = require("morgan");
-
 // routes
 // const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
@@ -26,7 +23,6 @@ mongoose.connect(process.env.MONGO_URL, () => {
 app.use("/upload", express.static(path.join(__dirname, "/public/upload")));
 
 // file-upload - upload files
-
 app.use(fileupload());
 
 app.post("/api/upload", (req, res) => {
@@ -48,15 +44,13 @@ app.post("/api/upload", (req, res) => {
 app.use(express.json());
 app.use(helmet());
 
-// app.use(morgan("common"));
-
 // end-point
 app.use("/api/users", require("./routes/users"));
 app.use("/api/posts", postRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/restaurants", restaurantRoute);
 
-// Serve frontend
+// Serve frontend for heroku
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));
 
