@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
-const multer = require("multer");
+// const multer = require("multer");
 const path = require("path");
 const port = process.env.PORT || 8000;
 
@@ -12,7 +12,7 @@ const port = process.env.PORT || 8000;
 // const morgan = require("morgan");
 
 // routes
-const userRoute = require("./routes/users");
+// const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const authRoute = require("./routes/auth");
 const restaurantRoute = require("./routes/restaurants");
@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGO_URL, () => {
 
 app.use("/upload", express.static(path.join(__dirname, "/public/upload")));
 
-// fileupload - upload files
+// file-upload - upload files
 
 app.use(fileupload());
 
@@ -47,10 +47,11 @@ app.post("/api/upload", (req, res) => {
 // middleware
 app.use(express.json());
 app.use(helmet());
+
 // app.use(morgan("common"));
 
-//routes
-app.use("/api/users", userRoute);
+// end-point
+app.use("/api/users", require("./routes/users"));
 app.use("/api/posts", postRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/restaurants", restaurantRoute);
